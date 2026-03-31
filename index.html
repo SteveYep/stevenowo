@@ -13,18 +13,18 @@ body {
     color: #e5e7eb;
 }
 
-/* ===== LANGUAGE SWITCH ===== */
 .lang-switch {
-    position: fixed;
+    position: fixed; /* vẫn fixed nhưng mờ, nổi trên content */
     top: 20px;
     right: 40px;
     display: flex;
     padding: 6px;
     border-radius: 40px;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(15px);
+    background: rgba(15, 23, 42, 0.4); /* trong suốt hơn, nhìn thấy nội dung */
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(56,189,248,0.2);
-    box-shadow: 0 0 20px rgba(56,189,248,0.15);
+    box-shadow: 0 0 15px rgba(56,189,248,0.2); /* nhẹ nhàng */
+    z-index: 50; /* đủ nổi nhưng không quá cao */
 }
 
 .lang-btn {
@@ -53,6 +53,7 @@ body {
     background: linear-gradient(135deg, #38bdf8, #6366f1);
     transition: 0.35s ease;
     box-shadow: 0 0 15px rgba(99,102,241,0.6);
+    z-index: 0; /* nền slider dưới nút */
 }
 
 .lang-switch.en::before {
@@ -206,6 +207,73 @@ body {
     .hero { flex-direction: column; text-align: center; }
     .grid { grid-template-columns: 1fr; }
 }
+/* ===== SLIDER ===== */
+.slider {
+    position: relative;
+    margin-top: 15px;
+}
+
+.slider img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.slider-controls button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(56,189,248,0.2);
+    color: #38bdf8;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-controls button:hover {
+    background: #38bdf8;
+    color: #020617;
+}
+
+.achievements .item {
+    background: #0f172a;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.achievements .item:hover {
+    background: #1e293b;
+}
+
+.title {
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+.content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+    font-size: 14px;
+    color: #cbd5f5;
+}
+
+.item.active .content {
+    max-height: 200px;
+    margin-top: 8px;
+}
+
 </style>
 </head>
 
@@ -269,6 +337,26 @@ body {
 <p id="act3"></p>
 </div>
 
+<div class="card">
+<h2 id="galleryTitle"></h2>
+
+<div class="slider">
+    <img id="sliderImage" src="/images/steven.jpg">
+    
+    <div class="slider-controls">
+        <button onclick="prevImage()">◀</button>
+        <button onclick="nextImage()">▶</button>
+    </div>
+</div>
+</div>
+
+<!-- ===== ACHIEVEMENTS CARD ===== -->
+<div class="achievements">
+    <h2 id="achTitle">Thành tựu</h2>
+    <div id="achievementsList"></div>
+        </div>
+    </div>
+</div>
 </div>
 </section>
 
@@ -290,10 +378,11 @@ eduTitle: "Học vấn",
 edu1: "<b>Trường:</b> Đại học An Giang",
 edu2: "<b>Chuyên Ngành:</b> Kỹ thuật phần mềm",
 edu3: "<b>Năm Học:</b> Sinh viên năm nhất",
-edu4: "<b>Định hướng:</b> Full-stack & Cloud Engineer",
-edu5: "<b>Lĩnh vực chính:</b> Công Nghệ Thông Tin",
-edu6: "<b>Lĩnh vực phụ:</b> Ngoại Ngữ & Tâm Lý Hành Vi",
-edu7: "<b>Chứng chỉ:</b> Gemini Certified Educator",
+edu4: "<b>Lớp:</b> DH26PM",
+edu5: "<b>Định hướng:</b> Full-stack & Cloud Engineer",
+edu6: "<b>Lĩnh vực chính:</b> Công Nghệ Thông Tin",
+edu7: "<b>Lĩnh vực phụ:</b> Ngoại Ngữ & Tâm Lý Hành Vi",
+
 skillTitle: "Kỹ năng",
 skills: ["HTML","CSS","Analyst","Java","SQL","GitHub","Data Structures & Algorithms","English","Chinese","Self-Learning","Critical Thinking","Problem Solving","Language Learning","Teamwork","Presentation Skills","Adaptability","Empathy","Creativity","Attention to detail","Growth mindset","Curiosity"],
 
@@ -302,13 +391,60 @@ info1: "<b>Năm sinh:</b> 04/09/2006",
 info2: "<b>Nơi sống:</b> Long Xuyên, An Giang, Việt Nam",
 info3: "<b>Liên hệ:</b> 0865946144",
 info4: "<b>Email:</b> hai_dpm255413@student.agu.edu.vn",
+
 actTitle: "Hoạt động",
 act1: "Trình Diễn Văn Nghệ Trong Hội Nghị Học Tốt 2025 - Đại Học An Giang.",
 act2: "Tiếng Anh Hùng Biện 2025 - Đại Học An Giang.",
 act3: "Hội Thảo Tập Huấn STEM & STATS 2026 - Đại Học An Giang.",
+galleryTitle: "Hình ảnh cá nhân",
+
+achTitle: "Thành tựu",
+ach1: "Đạt danh hiệu Sinh viên tích cực 2025.",
+ach2: "Tham gia nhiều hoạt động học thuật và hội thảo công nghệ.",
+ach3: "Tự học và hoàn thành các dự án cá nhân về web.",
+
+achTitle: "Thành tựu",
+achievements: [
+    {
+        title: "⭐ Phát Triển Trò Chơi",
+        content: "+ Phát triển và phát hành một trò chơi trên Roblox vào năm 2019, đạt được Gold Crown of O’s (100+ MAU) và Bombastic Crown of O’s (1K+ MAU) vào năm 2021.",
+    },
+    {
+        title: "💻 Dự Án Cá Nhân",
+        content: "+ Tự xây dựng một Website Portfolio và deploy lên GitHub."
+    },
+    {
+        title: "📚 Hội Thảo",
+        content: "+ Hội Thảo ESC (Chào Đón Năm Học Mới)."
+    },
+    {
+        title: "🏛️ Hội Nghị",
+        content: "+ Hội Nghị Giới thiệu Ngành Công nghệ Âm Nhạc Số."
+    },
+    {
+        title: "📜 Chứng Chỉ",
+        content: "+ Chứng Chỉ Giáo Dục Do Gemini cấp. <br> + Chứng Chỉ Tiếng Anh VSTEP B1 ( Dự Kiến 2026). "
+    },
+],
+
+images: [
+"images/9.jpg",
+"images/7.jpg",
+"images/1.jpg",
+"images/2.jpg",
+"images/12.jpg",
+"images/13.jpg",
+"images/8.jpg",
+"images/11.jpg",
+"images/3.jpg",
+"images/5.jpg",
+"images/16.jpg",
+"images/17.jpg",
+],
 },
 
 en: {
+
 title: "Hello, I'm <span>Tran Thanh Hai</span>",
 intro: "A <strong>Software Engineering</strong> student with a goal of becoming a <strong>Full-stack Developer</strong> and <strong>Cloud Engineer</strong>.",
 contactBtn: "📩 Contact me",
@@ -320,11 +456,11 @@ eduTitle: "Education",
 
 edu1: "<b>University:</b> An Giang University",
 edu2: "<b>Major:</b> Software Engineering",
-edu3: "<b>Year of Study:</b> First-year student",
-edu4: "<b>Career Goal:</b> Full-stack Developer & Cloud Engineer",
-edu5: "<b>Primary Field:</b> Information Technology",
-edu6: "<b>Secondary Interests:</b> Languages & Behavioral Psychology",
-edu7: "<b>Certifications:</b> Gemini Certified Educator",
+edu3: "<b>Year of Study:</b> First-Year Student",
+edu4: "<b>Class:</b> DH26PM",
+edu5: "<b>Career Goal:</b> Full-stack Developer & Cloud Engineer",
+edu6: "<b>Primary Field:</b> Information Technology",
+edu7: "<b>Secondary Interests:</b> Languages & Behavioral Psychology",
 
 skillTitle: "Skills",
 skills: ["HTML","CSS","Analyst","Java","SQL","GitHub","Data Structures & Algorithms","English","Chinese","Self Learning","Critical Thinking","Problem Solving","Language Learning","Teamwork","Presentation Skills","Adaptability","Empathy","Creativity","Attention to detail","Growth mindset","Curiosity"],
@@ -338,20 +474,116 @@ info4: "<b>Email:</b> hai_dpm255413@student.agu.edu.vn",
 actTitle: "Activities",
 act1: "Student Academic Excellence Conference 2025 – An Giang University.",
 act2: "English Speech Contest 2025 – An Giang University.",
-act3: "STEM & STATS Training Workshop 2026 – An Giang University."
+act3: "STEM & STATS Training Workshop 2026 – An Giang University.",
+galleryTitle: "Gallery",
+
+achTitle: "Achievements",
+achievements: [
+    {
+        title: "⭐ Game Development",
+        content: "+ Developed and published a game on Roblox in 2019, achieving Gold Crown of O’s (100+ MAU) and Bombastic Crown of O’s (1K+ MAU) in 2021."
+    },
+    {
+        title: "💻 Personal Projects",
+        content: "Built a portfolio website using HTML, CSS, JavaScript and deployed on GitHub."
+    },
+    {
+        title: "📚 Workshops",
+        content: "+ ESC Workshop (Starting New School Year)."
+    },
+    {
+        title: "🏛️ Conference",
+        content: "+ Introduction to Digital Music Technology."
+    },
+    {
+        title: "📜 Certifications",
+        content: "+ Gemini Certified Educator. <br> + VSTEP B1 English Certificate (Expected 2026). "
+    },
+],
+images: [
+"images/9.jpg",
+"images/7.jpg",
+"images/1.jpg",
+"images/2.jpg",
+"images/12.jpg",
+"images/13.jpg",
+"images/8.jpg",
+"images/11.jpg",
+"images/3.jpg",
+"images/5.jpg",
+"images/16.jpg",
+"images/17.jpg",
+],
 }
 };
+let currentImages = [];
+let currentIndex = 0;
+
+function renderAchievements(lang) {
+    const container = document.getElementById("achievementsList");
+    const list = data[lang].achievements;
+    container.innerHTML = "";
+
+    list.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.onclick = () => toggleItem(div);
+
+        div.innerHTML = `
+            <div class="title">${item.title}</div>
+            <div class="content">${item.content}</div>
+        `;
+        container.appendChild(div);
+    });
+}
+
+function toggleItem(element) {
+    const content = element.querySelector(".content");
+
+    if (element.classList.contains("active")) {
+        content.style.height = content.scrollHeight + "px";
+        setTimeout(() => {
+            content.style.height = "0px";
+        }, 10);
+        element.classList.remove("active");
+    } else {
+        content.style.height = content.scrollHeight + "px";
+        element.classList.add("active");
+    }
+}
+
+function showImage() {
+    const img = document.getElementById("sliderImage");
+    img.src = currentImages[currentIndex];
+}
+
+function nextImage() {
+    currentIndex++;
+    if (currentIndex >= currentImages.length) currentIndex = 0;
+    showImage();
+}
+
+function prevImage() {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = currentImages.length - 1;
+    showImage();
+}
 
 function setLang(lang, el) {
+
+    // ===== TEXT =====
     for (let key in data[lang]) {
-        if (key !== "skills") {
-            document.getElementById(key).innerHTML = data[lang][key];
+        if (key !== "skills" && key !== "images" && key !== "achievements") {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = data[lang][key];
+            }
         }
     }
 
+    // ===== SKILLS =====
     const skillContainer = document.getElementById("skills");
     skillContainer.innerHTML = "";
-
     data[lang].skills.forEach(skill => {
         const span = document.createElement("span");
         span.className = "skill-tag";
@@ -359,11 +591,21 @@ function setLang(lang, el) {
         skillContainer.appendChild(span);
     });
 
+    // ===== ACHIEVEMENTS =====
+    renderAchievements(lang);
+
+    // ===== SLIDER =====
+    currentImages = data[lang].images;
+    currentIndex = 0;
+    showImage();
+
+    // ===== BUTTON ACTIVE =====
     document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.remove("active");
     });
-    el.classList.add("active");
+    if(el) el.classList.add("active");
 
+    // ===== SWITCH UI =====
     const switchBox = document.getElementById("langSwitch");
     if (lang === "en") {
         switchBox.classList.add("en");
@@ -372,6 +614,7 @@ function setLang(lang, el) {
     }
 }
 
+// Khởi tạo trang mặc định
 setLang('vi');
 </script>
 
