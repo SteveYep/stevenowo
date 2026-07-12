@@ -14,17 +14,17 @@ body {
 }
 
 .lang-switch {
-    position: fixed; /* vẫn fixed nhưng mờ, nổi trên content */
+    position: fixed; 
     top: 20px;
     right: 40px;
     display: flex;
     padding: 6px;
     border-radius: 40px;
-    background: rgba(15, 23, 42, 0.4); /* trong suốt hơn, nhìn thấy nội dung */
+    background: rgba(15, 23, 42, 0.4); 
     backdrop-filter: blur(10px);
     border: 1px solid rgba(56,189,248,0.2);
-    box-shadow: 0 0 15px rgba(56,189,248,0.2); /* nhẹ nhàng */
-    z-index: 50; /* đủ nổi nhưng không quá cao */
+    box-shadow: 0 0 15px rgba(56,189,248,0.2); 
+    z-index: 50; 
 }
 
 .lang-btn {
@@ -53,14 +53,14 @@ body {
     background: linear-gradient(135deg, #38bdf8, #6366f1);
     transition: 0.35s ease;
     box-shadow: 0 0 15px rgba(99,102,241,0.6);
-    z-index: 0; /* nền slider dưới nút */
+    z-index: 0; 
 }
 
 .lang-switch.en::before {
     transform: translateX(100%);
 }
 
-/* ===== HERO ===== */
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -88,7 +88,7 @@ body {
     color: #38bdf8;
 }
 
-/* AVATAR */
+
 .avatar {
     width: 230px;
     height: 230px;
@@ -98,14 +98,14 @@ body {
     box-shadow: 0 0 40px rgba(56,189,248,0.6);
 }
 
-/* ACTIONS */
+
 .hero-actions {
     margin-top: 30px;
     display: flex;
     gap: 15px;
 }
 
-/* BUTTON */
+
 .btn {
     padding: 12px 22px;
     border-radius: 10px;
@@ -114,7 +114,7 @@ body {
     transition: 0.3s;
 }
 
-/* PRIMARY */
+
 .btn.primary {
     background: linear-gradient(135deg, #38bdf8, #6366f1);
     color: #020617;
@@ -127,7 +127,7 @@ body {
     box-shadow: 0 0 30px rgba(99,102,241,0.8);
 }
 
-/* GHOST */
+
 .btn.ghost {
     border: 1px solid rgba(56,189,248,0.4);
     color: #38bdf8;
@@ -137,11 +137,11 @@ body {
     background: rgba(56,189,248,0.1);
 }
 
-/* SECTION */
+
 .section { padding: 80px 10%; }
 .section h2 { color: #38bdf8; }
 
-/* ===== ABOUT UPGRADE (CHỈ THÊM, KHÔNG PHÁ CODE) ===== */
+
 #aboutText {
     font-size: 18px;
     line-height: 1.9;
@@ -160,14 +160,14 @@ body {
     font-weight: 600;
 }
 
-/* GRID */
+
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
-/* CARD */
+
 .card {
     background: rgba(17, 24, 39, 0.6);
     backdrop-filter: blur(10px);
@@ -182,7 +182,7 @@ body {
     box-shadow: 0 0 30px rgba(56,189,248,0.3);
 }
 
-/* SKILL TAG */
+
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -202,12 +202,11 @@ body {
     color: #020617;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
     .hero { flex-direction: column; text-align: center; }
     .grid { grid-template-columns: 1fr; }
 }
-/* ===== SLIDER ===== */
+
 .slider {
     position: relative;
     margin-top: 15px;
@@ -218,6 +217,7 @@ body {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 12px;
+    transition: opacity 0.5s ease;
 }
 
 .slider-controls {
@@ -293,7 +293,7 @@ body {
 
 <div class="hero-actions">
 <a href="https://www.facebook.com/Steventranowo/" target="_blank" class="btn primary" id="contactBtn">📩 Kết nối với tôi</a>
-<a href="https://www.linkedin.com/in/tranthanhhaiowo" target="_blank" class="btn ghost">Linkedin</a>
+<a href="https://www.linkedin.com/in/tranthanhhaiovo" target="_blank" class="btn ghost">Linkedin</a>
 </div>
 </div>
 </section>
@@ -350,7 +350,7 @@ body {
 </div>
 </div>
 
-<!-- ===== ACHIEVEMENTS CARD ===== -->
+
 <div class="achievements">
     <h2 id="achTitle">Thành tựu</h2>
     <div id="achievementsList"></div>
@@ -372,19 +372,19 @@ intro: "Sinh viên <strong>Kỹ Thuật Phần Mềm</strong> với định hư�
 contactBtn: "📩 Kết nối với tôi",
 
 aboutTitle: "Giới thiệu",
-aboutText: "Tôi tên là <strong>Trần Thanh Hải</strong>, còn được biết đến với tên <strong>Steven</strong>. Hiện tại, tôi là sinh viên năm nhất ngành <strong>Kỹ Thuật Phần Mềm</strong> tại Trường Đại Học An Giang. Tôi có niềm đam mê mạnh mẽ với <strong>công nghệ</strong> và <strong>ngoại ngữ</strong>, và tôi xem đây là những nền tảng thiết yếu cho sự phát triển cá nhân và nghề nghiệp trong môi trường toàn cầu. Tôi đặc biệt coi trọng việc không ngừng hoàn thiện bản thân, <strong>tính kỷ luật</strong> và <strong>sự sáng tạo</strong>, vì những phẩm chất này giúp tôi liên tục phát triển và nâng cao bản thân trong suốt hành trình học tập cũng như sự nghiệp tương lai.",
+aboutText: "Tôi tên là <strong>Trần Thanh Hải</strong>, còn được biết đến với tên <strong>Steven</strong>. Hiện tại, tôi là sinh viên năm hai ngành <strong>Kỹ Thuật Phần Mềm</strong> tại Trường Đại Học An Giang. Tôi có niềm đam mê mạnh mẽ với <strong>công nghệ</strong> và <strong>ngoại ngữ</strong>, và tôi xem đây là những nền tảng thiết yếu cho sự phát triển cá nhân và nghề nghiệp trong môi trường toàn cầu. Tôi đặc biệt coi trọng việc không ngừng hoàn thiện bản thân, <strong>tính kỷ luật</strong> và <strong>sự sáng tạo</strong>, vì những phẩm chất này giúp tôi liên tục phát triển và nâng cao bản thân trong suốt hành trình học tập cũng như sự nghiệp tương lai.",
 
 eduTitle: "Học vấn",
-edu1: "<b>Trường:</b> Đại học An Giang",
-edu2: "<b>Chuyên Ngành:</b> Kỹ thuật phần mềm",
-edu3: "<b>Năm Học:</b> Sinh viên năm nhất",
+edu1: "<b>Trường:</b> Đại Học An Giang",
+edu2: "<b>Chuyên Ngành:</b> Kỹ Thuật Phần Mềm",
+edu3: "<b>Năm Học:</b> Sinh Viên Năm Hai",
 edu4: "<b>Lớp:</b> DH26PM",
 edu5: "<b>Định hướng:</b> Full-stack & Cloud Engineer",
 edu6: "<b>Lĩnh vực chính:</b> Công Nghệ Thông Tin",
 edu7: "<b>Lĩnh vực phụ:</b> Ngoại Ngữ & Tâm Lý Hành Vi",
 
 skillTitle: "Kỹ năng",
-skills: ["HTML","CSS","Analyst","Java","SQL","GitHub","Data Structures & Algorithms","English","Chinese","Self-Learning","Critical Thinking","Problem Solving","Language Learning","Teamwork","Presentation Skills","Adaptability","Empathy","Creativity","Attention to detail","Growth mindset","Curiosity"],
+skills: ["HTML","CSS","Analyst","Java","SQL","GitHub","English","Chinese","Self-Learning","Critical Thinking","Problem Solving","Language Learning","Teamwork","Presentation Skills","Adaptability","Empathy","Creativity","Attention to detail","Growth mindset","Curiosity"],
 
 infoTitle: "Thông tin cá nhân",
 info1: "<b>Năm sinh:</b> 04/09/2006",
@@ -396,6 +396,7 @@ actTitle: "Hoạt động",
 act1: "Trình Diễn Văn Nghệ Trong Hội Nghị Học Tốt 2025 - Đại Học An Giang.",
 act2: "Tiếng Anh Hùng Biện 2025 - Đại Học An Giang.",
 act3: "Hội Thảo Tập Huấn STEM & STATS 2026 - Đại Học An Giang.",
+
 galleryTitle: "Hình ảnh cá nhân",
 
 achTitle: "Thành tựu",
@@ -414,17 +415,22 @@ achievements: [
         content: "+ Tự xây dựng một Website Portfolio và deploy lên GitHub."
     },
     {
-        title: "📚 Hội Thảo",
-        content: "+ Hội Thảo ESC (Chào Đón Năm Học Mới)."
-    },
-    {
-        title: "🏛️ Hội Nghị",
-        content: "+ Hội Nghị Giới Thiệu Ngành Công Nghệ Âm Nhạc Số 2025. <br> + Hội Nghị Học Tốt 2025."
-    },
-    {
         title: "📜 Chứng Chỉ",
         content: "+ Chứng Chỉ Giáo Dục Do Gemini cấp. <br> + Chứng Chỉ Tiếng Anh VSTEP B1 (Dự Kiến 2026)."
     },
+     {
+        title: "📚 Khóa Học",
+        content: "+ Bổ sung sau."
+    },
+    {
+        title: "📄 Bài Báo Khoa Học",
+        content: "+ Chưa có."
+    },
+    {
+        title: "💼 Kinh Nghiệm Làm Việc",
+        content: "+ Chưa có."
+    },
+    
 ],
 
 images: [
@@ -450,20 +456,20 @@ intro: "A <strong>Software Engineering</strong> student with a goal of becoming 
 contactBtn: "📩 Contact me",
 
 aboutTitle: "About Me",
-aboutText: "My name is <strong>Tran Thanh Hai</strong>, also known as <strong>Steven</strong>. I am a first-year <strong>Software Engineering</strong> student at An Giang University. I am deeply passionate about <strong>technology</strong> and <strong>languages</strong>, which I view as essential pillars for thriving in a global environment. I am committed to continuous self-improvement, driven by <strong>discipline</strong> and <strong>creativity</strong>, as I strive to grow and excel throughout my academic journey and future career.",
+aboutText: "My name is <strong>Tran Thanh Hai</strong>, also known as <strong>Steven</strong>. I am a second-year <strong>Software Engineering</strong> student at An Giang University. I am deeply passionate about <strong>technology</strong> and <strong>languages</strong>, which I view as essential pillars for thriving in a global environment. I am committed to continuous self-improvement, driven by <strong>discipline</strong> and <strong>creativity</strong>, as I strive to grow and excel throughout my academic journey and future career.",
 
 eduTitle: "Education",
 
 edu1: "<b>University:</b> An Giang University",
 edu2: "<b>Major:</b> Software Engineering",
-edu3: "<b>Year of Study:</b> First-Year Student",
+edu3: "<b>Year of Study:</b> Second-Year Student",
 edu4: "<b>Class:</b> DH26PM",
 edu5: "<b>Career Goal:</b> Full-stack Developer & Cloud Engineer",
 edu6: "<b>Primary Field:</b> Information Technology",
 edu7: "<b>Secondary Interests:</b> Languages & Behavioral Psychology",
 
 skillTitle: "Skills",
-skills: ["HTML","CSS","Analyst","Java","SQL","GitHub","Data Structures & Algorithms","English","Chinese","Self Learning","Critical Thinking","Problem Solving","Language Learning","Teamwork","Presentation Skills","Adaptability","Empathy","Creativity","Attention to detail","Growth mindset","Curiosity"],
+skills: ["HTML","CSS","Analyst","Java","GitHub","English","Chinese","Self Learning","Critical Thinking","Problem Solving","Language Learning","Teamwork","Presentation Skills","Adaptability","Empathy","Creativity","Attention to detail","Growth mindset","Curiosity"],
 
 infoTitle: "Personal Info",
 info1: "<b>Date of Birth:</b> September 4, 2006",
@@ -488,16 +494,20 @@ achievements: [
         content: "Built a portfolio website using HTML, CSS, JavaScript and deployed on GitHub."
     },
     {
-        title: "📚 Workshops",
-        content: "+ ESC Workshop (Starting New School Year)."
-    },
-    {
-        title: "🏛️ Conferences",
-        content: "+ Digital Music Technology Major Introduction Conference 2025. <br> + Academic Excellence Conference 2025."
-    },
-    {
         title: "📜 Certifications",
         content: "+ Gemini Certified Educator. <br> + VSTEP B1 English Certificate (Expected 2026). "
+    },
+    {
+    title: "📚 Courses",
+    content: "+ To be added."
+    },
+    {
+    title: "📄 Publications",
+    content: "+ None yet."
+    },
+    {
+    title: "💼 Work Experience",
+    content: "+ None yet."
     },
 ],
 images: [
@@ -552,11 +562,15 @@ function toggleItem(element) {
     }
 }
 
-function showImage() {
+function showImage() 
+{
     const img = document.getElementById("sliderImage");
-    img.src = currentImages[currentIndex];
+    img.style.opacity = 0;
+    setTimeout(() => {
+        img.src = currentImages[currentIndex];
+        img.style.opacity = 1;
+    }, 200);
 }
-
 function nextImage() {
     currentIndex++;
     if (currentIndex >= currentImages.length) currentIndex = 0;
@@ -571,7 +585,6 @@ function prevImage() {
 
 function setLang(lang, el) {
 
-    // ===== TEXT =====
     for (let key in data[lang]) {
         if (key !== "skills" && key !== "images" && key !== "achievements") {
             const element = document.getElementById(key);
@@ -581,7 +594,6 @@ function setLang(lang, el) {
         }
     }
 
-    // ===== SKILLS =====
     const skillContainer = document.getElementById("skills");
     skillContainer.innerHTML = "";
     data[lang].skills.forEach(skill => {
@@ -591,21 +603,18 @@ function setLang(lang, el) {
         skillContainer.appendChild(span);
     });
 
-    // ===== ACHIEVEMENTS =====
     renderAchievements(lang);
 
-    // ===== SLIDER =====
     currentImages = data[lang].images;
     currentIndex = 0;
     showImage();
 
-    // ===== BUTTON ACTIVE =====
     document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.remove("active");
     });
     if(el) el.classList.add("active");
 
-    // ===== SWITCH UI =====
+    
     const switchBox = document.getElementById("langSwitch");
     if (lang === "en") {
         switchBox.classList.add("en");
@@ -614,7 +623,6 @@ function setLang(lang, el) {
     }
 }
 
-// Khởi tạo trang mặc định
 setLang('vi');
 </script>
 
